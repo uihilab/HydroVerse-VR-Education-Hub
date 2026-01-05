@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academic Class Portal — 4 Sessions</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f9;
+      font-size: 32px; /* Doubled font size */
+      margin: 0;
+    }
+
+    .sidebar {
+      width: 360px; /* Increased width */
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #1f4e79;
+      color: white;
+      padding-top: 2rem;
+      font-size: 30px;
+      overflow-y: auto;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 30px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 16px 28px;
+      color: white;
+      text-decoration: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .sidebar a:hover {
+      background: #34699a;
+    }
+
+    .content {
+      margin-left: 380px;
+      padding: 3rem;
+    }
+
+    .content h1 {
+      font-size: 44px;
+      color: #1f4e79;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .content h3 {
+      font-size: 38px;
+      font-weight: 600;
+      color: #1f4e79;
+      margin-bottom: 20px;
+    }
+
+    .content p,
+    .content .quiz p {
+      font-size: 32px;
+    }
+
+    .section { display: none; }
+    .section.active { display: block; }
+
+    .quiz button {
+      font-size: 30px;
+      padding: 14px 18px;
+      margin: 10px 0;
+      width: 100%;
+      text-align: left;
+    }
+
+    .slide-controls {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    button.btn {
+      font-size: 28px;
+      padding: 12px 18px;
+      margin: 8px;
+    }
+
+    img,
+    video {
+      border-radius: 10px;
+    }
+
+    video {
+      max-height: 520px;
+      width: 100%;
+    }
+
+    .img-fluid {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .session-label {
+      font-size: 22px;
+      opacity: .85;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar with drill-down -->
+  <div class="sidebar">
+    <h2>Class Portal</h2>
+
+    <!-- Session 1 -->
+    <a class="dropdown-toggle" data-bs-toggle="collapse" href="#session1Menu" role="button" aria-expanded="true" aria-controls="session1Menu">📚 Session 1</a>
+    <div class="collapse show" id="session1Menu">
+      <a onclick="showSection('session1','image')">📄 Image Presentation</a>
+      <a onclick="showSection('session1','slides')">🖼️ Slideshow</a>
+      <a onclick="showSection('session1','videos')">🎬 Videos</a>
+      <a onclick="showSection('session1','quiz')">📝 Quiz</a>
+    </div>
+
+    <!-- Session 2 -->
+    <a class="dropdown-toggle" data-bs-toggle="collapse" href="#session2Menu" role="button" aria-expanded="false" aria-controls="session2Menu">📚 Session 2</a>
+    <div class="collapse" id="session2Menu">
+      <a onclick="showSection('session2','image')">📄 Image Presentation</a>
+      <a onclick="showSection('session2','slides')">🖼️ Slideshow</a>
+      <a onclick="showSection('session2','videos')">🎬 Videos</a>
+      <a onclick="showSection('session2','quiz')">📝 Quiz</a>
+    </div>
+
+    <!-- Session 3 -->
+    <a class="dropdown-toggle" data-bs-toggle="collapse" href="#session3Menu" role="button" aria-expanded="false" aria-controls="session3Menu">📚 Session 3</a>
+    <div class="collapse" id="session3Menu">
+      <a onclick="showSection('session3','image')">📄 Image Presentation</a>
+      <a onclick="showSection('session3','slides')">🖼️ Slideshow</a>
+      <a onclick="showSection('session3','videos')">🎬 Videos</a>
+      <a onclick="showSection('session3','quiz')">📝 Quiz</a>
+    </div>
+
+    <!-- Session 4 -->
+    <a class="dropdown-toggle" data-bs-toggle="collapse" href="#session4Menu" role="button" aria-expanded="false" aria-controls="session4Menu">📚 Session 4</a>
+    <div class="collapse" id="session4Menu">
+      <a onclick="showSection('session4','image')">📄 Image Presentation</a>
+      <a onclick="showSection('session4','slides')">🖼️ Slideshow</a>
+      <a onclick="showSection('session4','videos')">🎬 Videos</a>
+      <a onclick="showSection('session4','quiz')">📝 Quiz</a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h1 class="text-primary">Hydroinformatics Educational Portal <span class="session-label" id="activeSessionLabel">(Session 1)</span></h1>
+
+    <!-- Session 1 Sections -->
+    <div id="session1-image" class="section active">
+      <h3>PDF/Image View — Session 1</h3>
+      <img id="session1ImageTag" src="IIHR.jpg" alt="IIHR Summary" class="img-fluid rounded border" />
+    </div>
+
+    <div id="session1-slides" class="section">
+      <h3>Interactive Slideshow — Session 1</h3>
+      <div class="text-center">
+        <img id="session1SlideImage" src="" class="img-fluid rounded border" style="max-height:500px" />
+        <div class="mt-3">
+          <button class="btn btn-secondary" onclick="prevSlide('session1')">⬅ Previous</button>
+          <button class="btn btn-primary" onclick="nextSlide('session1')">Next ➡</button>
+        </div>
+        <div class="mt-4 text-start" id="session1SlideText"></div>
+      </div>
+    </div>
+
+    <div id="session1-videos" class="section">
+      <h3>Video Lectures — Session 1</h3>
+      <div class="text-center">
+        <video id="session1VideoPlayer" controls>
+          <source src="" type="video/mp4" />
+        </video>
+        <div class="slide-controls">
+          <button class="btn btn-secondary" onclick="prevVideo('session1')">⬅ Previous</button>
+          <button class="btn btn-primary" onclick="nextVideo('session1')">Next ➡</button>
+        </div>
+        <p class="mt-2" id="session1VideoLabel"></p>
+      </div>
+    </div>
+
+    <div id="session1-quiz" class="section">
+      <h3>Knowledge Check — Session 1</h3>
+      <div class="quiz" id="session1QuizContainer"></div>
+      <div class="slide-controls">
+        <button class="btn btn-secondary" onclick="prevQuiz('session1')">⬅ Previous</button>
+        <button class="btn btn-primary" onclick="nextQuiz('session1')">Next ➡</button>
+      </div>
+    </div>
+
+    <!-- Session 2 Sections -->
+    <div id="session2-image" class="section">
+      <h3>PDF/Image View — Session 2</h3>
+      <div id="session2ImageWrap"></div>
+    </div>
+
+    <div id="session2-slides" class="section">
+      <h3>Interactive Slideshow — Session 2</h3>
+      <div class="text-center">
+        <img id="session2SlideImage" src="" class="img-fluid rounded border" style="max-height:500px" />
+        <div class="mt-3">
+          <button class="btn btn-secondary" onclick="prevSlide('session2')">⬅ Previous</button>
+          <button class="btn btn-primary" onclick="nextSlide('session2')">Next ➡</button>
+        </div>
+        <div class="mt-4 text-start" id="session2SlideText"></div>
+      </div>
+    </div>
+
+    <div id="session2-videos" class="section">
+      <h3>Video Lectures — Session 2</h3>
+      <div class="text-center">
+        <video id="session2VideoPlayer" controls>
+          <source src="" type="video/mp4" />
+        </video>
+        <div class="slide-controls">
+          <button class="btn btn-secondary" onclick="prevVideo('session2')">⬅ Previous</button>
+          <button class="btn btn-primary" onclick="nextVideo('session2')">Next ➡</button>
+        </div>
+        <p class="mt-2" id="session2VideoLabel"></p>
+      </div>
+    </div>
+
+    <div id="session2-quiz" class="section">
+      <h3>Knowledge Check — Session 2</h3>
+      <div class="quiz" id="session2QuizContainer"></div>
+      <div class="slide-controls">
+        <button class="btn btn-secondary" onclick="prevQuiz('session2')">⬅ Previous</button>
+        <button class="btn btn-primary" onclick="nextQuiz('session2')">Next ➡</button>
+      </div>
+    </div>
+
+    <!-- Session 3 Sections -->
+    <div id="session3-image" class="section">
+      <h3>PDF/Image View — Session 3</h3>
+      <div id="session3ImageWrap"></div>
+    </div>
+
+    <div id="session3-slides" class="section">
+      <h3>Interactive Slideshow — Session 3</h3>
+      <div class="text-center">
+        <img id="session3SlideImage" src="" class="img-fluid rounded border" style="max-height:500px" />
+        <div class="mt-3">
+          <button class="btn btn-secondary" onclick="prevSlide('session3')">⬅ Previous</button>
+          <button class="btn btn-primary" onclick="nextSlide('session3')">Next ➡</button>
+        </div>
+        <div class="mt-4 text-start" id="session3SlideText"></div>
+      </div>
+    </div>
+
+    <div id="session3-videos" class="section">
+      <h3>Video Lectures — Session 3</h3>
+      <div class="text-center">
+        <video id="session3VideoPlayer" controls>
+          <source src="" type="video/mp4" />
+        </video>
+        <div class="slide-controls">
+          <button class="btn btn-secondary" onclick="prevVideo('session3')">⬅ Previous</button>
+          <button class="btn btn-primary" onclick="nextVideo('session3')">Next ➡</button>
+        </div>
+        <p class="mt-2" id="session3VideoLabel"></p>
+      </div>
+    </div>
+
+    <div id="session3-quiz" class="section">
+      <h3>Knowledge Check — Session 3</h3>
+      <div class="quiz" id="session3QuizContainer"></div>
+      <div class="slide-controls">
+        <button class="btn btn-secondary" onclick="prevQuiz('session3')">⬅ Previous</button>
+        <button class="btn btn-primary" onclick="nextQuiz('session3')">Next ➡</button>
+      </div>
+    </div>
+
+    <!-- Session 4 Sections -->
+    <div id="session4-image" class="section">
+      <h3>PDF/Image View — Session 4</h3>
+      <div id="session4ImageWrap"></div>
+    </div>
+
+    <div id="session4-slides" class="section">
+      <h3>Interactive Slideshow — Session 4</h3>
+      <div class="text-center">
+        <img id="session4SlideImage" src="" class="img-fluid rounded border" style="max-height:500px" />
+        <div class="mt-3">
+          <button class="btn btn-secondary" onclick="prevSlide('session4')">⬅ Previous</button>
+          <button class="btn btn-primary" onclick="nextSlide('session4')">Next ➡</button>
+        </div>
+        <div class="mt-4 text-start" id="session4SlideText"></div>
+      </div>
+    </div>
+
+    <div id="session4-videos" class="section">
+      <h3>Video Lectures — Session 4</h3>
+      <div class="text-center">
+        <video id="session4VideoPlayer" controls>
+          <source src="" type="video/mp4" />
+        </video>
+        <div class="slide-controls">
+          <button class="btn btn-secondary" onclick="prevVideo('session4')">⬅ Previous</button>
+          <button class="btn btn-primary" onclick="nextVideo('session4')">Next ➡</button>
+        </div>
+        <p class="mt-2" id="session4VideoLabel"></p>
+      </div>
+    </div>
+
+    <div id="session4-quiz" class="section">
+      <h3>Knowledge Check — Session 4</h3>
+      <div class="quiz" id="session4QuizContainer"></div>
+      <div class="slide-controls">
+        <button class="btn btn-secondary" onclick="prevQuiz('session4')">⬅ Previous</button>
+        <button class="btn btn-primary" onclick="nextQuiz('session4')">Next ➡</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- Session-scoped data ---
+    const sessionData = {
+      session1: {
+        imageSrc: "IIHR.jpg",
+        slides: [
+          {
+            src: "http://localhost:8000/Wave_Basin.jpg",
+            text: `<h5>Wave Basin</h5><p>The wave basin facility tests ships under various flow conditions, analyzing wave patterns, unsteady hull pressure, and more.</p>`
+          },
+          {
+            src: "http://localhost:8000/Towing_Tank.jpg",
+            text: `<h5>Towing Tank</h5><p>Located in the C. Maxwell Stanley Hydraulics Lab, the towing tank supports hydrodynamics research with over 50 years of data.</p>`
+          }
+        ],
+        videos: [
+          { label: "Chapter 3: Bridge Pier", src: "http://localhost:8000/Chapter3_BridgePier.webm" },
+          { label: "Chapter 5: Culvert", src: "http://localhost:8000/Chapter5_Culvert.webm" }
+        ],
+        quizzes: [
+          {
+            question: "What is the purpose of the wave basin?",
+            options: [
+              { text: "Measure salinity changes", correct: false },
+              { text: "Test ship flow and wave patterns", correct: true },
+              { text: "Study air pollution", correct: false }
+            ]
+          },
+          {
+            question: "What does the Bridge Pier video mainly focus on?",
+            options: [
+              { text: "Bridge painting", correct: false },
+              { text: "Water flow interaction with piers", correct: true },
+              { text: "Road traffic analysis", correct: false }
+            ]
+          },
+          {
+            question: "IIHR was founded in which year?",
+            options: [
+              { text: "1980", correct: false },
+              { text: "1955", correct: false },
+              { text: "1920", correct: true }
+            ]
+          },
+          {
+            question: `<p><strong>This image is associated with which research facility?</strong></p>
+                       <img src="Towing_Tank.jpg" class="img-fluid rounded border mb-3" style="max-height:300px;" />`,
+            options: [
+              { text: "Culvert Modeling", correct: false },
+              { text: "Wave Basin", correct: false },
+              { text: "Towing Tank", correct: true }
+            ]
+          },
+          {
+            question: `<p><strong>The video presented below demonstrates which application?</strong></p>
+                       <video controls style="width: 100%; max-height: 300px;">
+                         <source src="http://localhost:8000/Chapter3_BridgePier.webm" type="video/mp4">
+                       </video>`,
+            options: [
+              { text: "Bridge Pier Scour Study", correct: true },
+              { text: "Hydrostation Deployment", correct: false },
+              { text: "Sediment Transport Modeling", correct: false }
+            ]
+          }
+        ]
+      },
+
+      // Sessions 2–4: empty placeholders for you to fill with your content
+      session2: { imageSrc: "", slides: [], videos: [], quizzes: [] },
+      session3: { imageSrc: "", slides: [], videos: [], quizzes: [] },
+      session4: { imageSrc: "", slides: [], videos: [], quizzes: [] }
+    };
+
+    // Track active session+indices per session
+    const state = {
+      activeSession: 'session1',
+      slidesIndex: { session1: 0, session2: 0, session3: 0, session4: 0 },
+      videosIndex: { session1: 0, session2: 0, session3: 0, session4: 0 },
+      quizzesIndex: { session1: 0, session2: 0, session3: 0, session4: 0 }
+    };
+
+    function setActiveSessionLabel() {
+      const label = document.getElementById('activeSessionLabel');
+      const map = { session1: 'Session 1', session2: 'Session 2', session3: 'Session 3', session4: 'Session 4' };
+      label.textContent = `(${map[state.activeSession]})`;
+    }
+
+    // Generic section switcher
+    function showSection(session, type) {
+      state.activeSession = session;
+      setActiveSessionLabel();
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      const id = `${session}-${type}`;
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.add('active');
+      }
+      // ensure the visible section is rendered/updated
+      if (type === 'image') renderImage(session);
+      if (type === 'slides') updateSlide(session);
+      if (type === 'videos') updateVideo(session);
+      if (type === 'quiz') renderQuiz(session);
+    }
+
+    // ---------- Image (per session) ----------
+    function renderImage(session) {
+      const data = sessionData[session];
+      const wrapId = {
+        session1: 'session1ImageTag',
+        session2: 'session2ImageWrap',
+        session3: 'session3ImageWrap',
+        session4: 'session4ImageWrap'
+      }[session];
+
+      if (!data.imageSrc) {
+        if (wrapId.endsWith('Wrap')) {
+          document.getElementById(wrapId).innerHTML = '<div class="alert alert-info">No image set yet for this session.</div>';
+        } else {
+          document.getElementById(wrapId).src = '';
+        }
+        return;
+      }
+
+      // Session 1 uses an <img> already in DOM
+      if (wrapId.endsWith('Tag')) {
+        document.getElementById(wrapId).src = data.imageSrc;
+      } else {
+        document.getElementById(wrapId).innerHTML = `<img src="${data.imageSrc}" class="img-fluid rounded border" alt="Session image" />`;
+      }
+    }
+
+    // ---------- Slideshow (per session) ----------
+    function updateSlide(session) {
+      const slides = sessionData[session].slides || [];
+      const idx = state.slidesIndex[session] % (slides.length || 1);
+      const imgId = `${session}SlideImage`;
+      const textId = `${session}SlideText`;
+      const imgEl = document.getElementById(imgId);
+      const textEl = document.getElementById(textId);
+
+      if (slides.length === 0) {
+        imgEl.src = '';
+        textEl.innerHTML = '<div class="alert alert-info">No slides added yet for this session.</div>';
+        return;
+      }
+      imgEl.src = slides[idx].src;
+      textEl.innerHTML = slides[idx].text;
+    }
+    function nextSlide(session) {
+      const slides = sessionData[session].slides || [];
+      if (slides.length === 0) return;
+      state.slidesIndex[session] = (state.slidesIndex[session] + 1) % slides.length;
+      updateSlide(session);
+    }
+    function prevSlide(session) {
+      const slides = sessionData[session].slides || [];
+      if (slides.length === 0) return;
+      state.slidesIndex[session] = (state.slidesIndex[session] - 1 + slides.length) % slides.length;
+      updateSlide(session);
+    }
+
+    // ---------- Videos (per session) ----------
+    function updateVideo(session) {
+      const vids = sessionData[session].videos || [];
+      const idx = state.videosIndex[session] % (vids.length || 1);
+      const playerId = `${session}VideoPlayer`;
+      const labelId  = `${session}VideoLabel`;
+      const player = document.getElementById(playerId);
+      const label  = document.getElementById(labelId);
+
+      if (vids.length === 0) {
+        player.removeAttribute('src');
+        player.load();
+        label.textContent = 'No videos added yet for this session.';
+        return;
+      }
+      player.src = vids[idx].src;
+      label.textContent = vids[idx].label;
+      player.load();
+    }
+    function nextVideo(session) {
+      const vids = sessionData[session].videos || [];
+      if (vids.length === 0) return;
+      state.videosIndex[session] = (state.videosIndex[session] + 1) % vids.length;
+      updateVideo(session);
+    }
+    function prevVideo(session) {
+      const vids = sessionData[session].videos || [];
+      if (vids.length === 0) return;
+      state.videosIndex[session] = (state.videosIndex[session] - 1 + vids.length) % vids.length;
+      updateVideo(session);
+    }
+
+    // ---------- Quizzes (per session) ----------
+    function renderQuiz(session) {
+      const quizzes = sessionData[session].quizzes || [];
+      const idx = state.quizzesIndex[session] % (quizzes.length || 1);
+      const containerId = `${session}QuizContainer`;
+      const container = document.getElementById(containerId);
+
+      if (quizzes.length === 0) {
+        container.innerHTML = '<div class="alert alert-info">No quiz questions added yet for this session.</div>';
+        return;
+      }
+
+      const quiz = quizzes[idx];
+      container.innerHTML = `<p><strong>${quiz.question}</strong></p>`;
+      quiz.options.forEach((opt) => {
+        const btn = document.createElement("button");
+        btn.className = "btn btn-outline-primary";
+        btn.textContent = opt.text;
+        btn.onclick = () => {
+          if (btn.classList.contains("disabled")) return;
+          btn.classList.add("disabled");
+          btn.classList.remove("btn-outline-primary");
+          btn.classList.add(opt.correct ? "btn-success" : "btn-danger");
+        };
+        container.appendChild(btn);
+        container.appendChild(document.createElement("br"));
+      });
+    }
+    function nextQuiz(session) {
+      const quizzes = sessionData[session].quizzes || [];
+      if (quizzes.length === 0) return;
+      state.quizzesIndex[session] = (state.quizzesIndex[session] + 1) % quizzes.length;
+      renderQuiz(session);
+    }
+    function prevQuiz(session) {
+      const quizzes = sessionData[session].quizzes || [];
+      if (quizzes.length === 0) return;
+      state.quizzesIndex[session] = (state.quizzesIndex[session] - 1 + quizzes.length) % quizzes.length;
+      renderQuiz(session);
+    }
+
+    // --- Initial render for Session 1 (preserves your existing content) ---
+    renderImage('session1');
+    updateSlide('session1');
+    updateVideo('session1');
+    renderQuiz('session1');
+
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
