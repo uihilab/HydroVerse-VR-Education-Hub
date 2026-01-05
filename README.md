@@ -9,9 +9,9 @@
 ![Platform](https://img.shields.io/badge/Platform-Meta%20Quest%203-orange)
 ![Status](https://img.shields.io/badge/status-Research%20Prototype-yellow)
 
-**HydroVerse Education** is an immersive virtual classroom environment designed to modernize hydroinformatics education through the integration of Virtual Reality (VR) and Artificial Intelligence (AI). [cite_start]This system transforms traditional learning by enabling students to engage with dynamic content, interact with realistic Metahuman instructors, and explore complex water systems in a simulated 3D space[cite: 657, 658].
+**HydroVerse Education** is an immersive virtual classroom environment designed to modernize hydroinformatics education through the integration of Virtual Reality (VR) and Artificial Intelligence (AI). This system transforms traditional learning by enabling students to engage with dynamic content, interact with realistic Metahuman instructors, and explore complex water systems in a simulated 3D space.
 
-[cite_start]The platform utilizes advanced technologies such as Unreal Engine, Metahuman, and Generative AI to create an interactive virtual classroom with immersive communication and knowledge generation features[cite: 658].
+The platform utilizes advanced technologies such as Unreal Engine, Metahuman, and Generative AI to create an interactive virtual classroom with immersive communication and knowledge generation features.
 
 ---
 
@@ -28,18 +28,18 @@
 
 ## Key Features
 
-* [cite_start]**AI-Driven Virtual Classroom:** An interactive 3D environment that replicates face-to-face learning dynamics with lecture boards, seating, and pedagogical tools[cite: 723].
-* [cite_start]**Adaptive Virtual Presenter:** A Metahuman instructor that delivers voice-based lectures, moderates discussions, and answers questions in real-time[cite: 788].
-* [cite_start]**Presentation Portal:** A web-integrated interface for viewing slides, videos, and taking interactive quizzes within the VR space[cite: 794].
-* [cite_start]**Integrated Learning Hub:** Supports experiential learning through digital twins of hydraulic structures and 360° immersive media[cite: 803, 804].
-* [cite_start]**Instructor Collaboration Panel:** Enables real-time supervision and live video conferencing, allowing human instructors to join the virtual session directly[cite: 806].
-* [cite_start]**Voice-Driven Interaction:** Utilizes natural language processing to convert user speech to text and synthesize AI responses with synchronized lip movements[cite: 790].
+* **AI-Driven Virtual Classroom:** An interactive 3D environment that replicates face-to-face learning dynamics with lecture boards, seating, and pedagogical tools.
+* **Adaptive Virtual Presenter:** A Metahuman instructor that delivers voice-based lectures, moderates discussions, and answers questions in real-time.
+* **Presentation Portal:** A web-integrated interface for viewing slides, videos, and taking interactive quizzes within the VR space.
+* **Integrated Learning Hub:** Supports experiential learning through digital twins of hydraulic structures and 360° immersive media.
+* **Instructor Collaboration Panel:** Enables real-time supervision and live video conferencing, allowing human instructors to join the virtual session directly.
+* **Voice-Driven Interaction:** Utilizes natural language processing to convert user speech to text and synthesize AI responses with synchronized lip movements.
 
 ---
 
 ## System Architecture
 
-[cite_start]The HydroVerse Education architecture is organized into three interconnected layers: the Foundational Layer, the Immersive Interaction Layer, and the Content Management Web Layer[cite: 812].
+The HydroVerse Education architecture is organized into three interconnected layers: the Foundational Layer, the Immersive Interaction Layer, and the Content Management Web Layer.
 
 <p align="center">
   <img src="./docs/Figure2_SystemArchitecture.png" width="800" title="System Architecture">
@@ -48,17 +48,17 @@
 </p>
 
 ### Core Components
-* [cite_start]**Foundational Layer:** Utilizes **Twinmotion** for environment creation and handles **Voice Input** and navigation[cite: 813, 814].
-* [cite_start]**Immersive Interaction Layer:** Hosts the **Adaptive Virtual Presenter** (Metahuman), **AI Knowledge Layer** (OpenAI), and **3D Media** integration[cite: 816].
-* [cite_start]**Content Management Web Layer:** A local web server hosts the **Presentation Portal** and **Instructor Panel**, bridging external resources with the VR experience[cite: 821, 822].
+* **Foundational Layer:** Utilizes **Twinmotion** for environment creation and handles **Voice Input** and navigation.
+* **Immersive Interaction Layer:** Hosts the **Adaptive Virtual Presenter** (Metahuman), **AI Knowledge Layer** (OpenAI), and **3D Media** integration.
+* **Content Management Web Layer:** A local web server hosts the **Presentation Portal** and **Instructor Panel**, bridging external resources with the VR experience.
 
 ---
 
 ## Installation & Requirements
 
 ### Hardware Requirements
-* [cite_start]**VR Headset:** Meta Quest 3 (Recommended) via Link/AirLink[cite: 977].
-* [cite_start]**PC Specifications:** High-performance PC (e.g., Intel Core i9, NVIDIA RTX 4080) recommended for real-time rendering[cite: 976].
+* **VR Headset:** Meta Quest 3 (Recommended) via Link/AirLink.
+* **PC Specifications:** High-performance PC (e.g., Intel Core i9, NVIDIA RTX 4080) recommended for real-time rendering.
 
 ### Software Prerequisites
 * [Unreal Engine 5.3](https://www.unrealengine.com/)
@@ -107,7 +107,7 @@
 ## Modules & Usage
 
 ### 1. Presentation Portal
-Learners access structured course materials through the **Presentation Portal**. [cite_start]This includes interactive slideshows, video lectures with chapter navigation, and quizzes for knowledge assessment[cite: 857].
+Learners access structured course materials through the **Presentation Portal**. This includes interactive slideshows, video lectures with chapter navigation, and quizzes for knowledge assessment.
 
 <p align="center">
   <img src="./docs/Figure3_PresentationPortal.png" width="800" title="Presentation Portal">
@@ -116,7 +116,7 @@ Learners access structured course materials through the **Presentation Portal**.
 </p>
 
 ### 2. Adaptive Virtual Presenter
-[cite_start]The Metahuman instructor introduces sessions, explains concepts found in slides or videos, and answers student questions using the AI knowledge generation layer[cite: 873, 940].
+The Metahuman instructor introduces sessions, explains concepts found in slides or videos, and answers student questions using the AI knowledge generation layer.
 
 <p align="center">
   <img src="./docs/Figure6_QuizSection.png" width="600" title="Virtual Instructor Interaction">
@@ -125,7 +125,7 @@ Learners access structured course materials through the **Presentation Portal**.
 </p>
 
 ### 3. Integrated Learning Hub (3D & 360°)
-This module allows exploration of **Digital Twins** (e.g., hydraulic structures) and **360° Media**. [cite_start]Learners can manipulate objects while the Avatar provides context-aware explanations[cite: 933, 934].
+This module allows exploration of **Digital Twins** (e.g., hydraulic structures) and **360° Media**. Learners can manipulate objects while the Avatar provides context-aware explanations.
 
 <p align="center">
   <img src="./docs/Figure8_3DModels.png" width="600" title="3D Digital Twins">
@@ -134,7 +134,7 @@ This module allows exploration of **Digital Twins** (e.g., hydraulic structures)
 </p>
 
 ### 4. Instructor Collaboration Panel
-Instructors can join the session via video conferencing to provide live supervision and mentorship. [cite_start]This panel seamlessly integrates real-time human interaction into the virtual classroom[cite: 968].
+Instructors can join the session via video conferencing to provide live supervision and mentorship. This panel seamlessly integrates real-time human interaction into the virtual classroom.
 
 <p align="center">
   <img src="./docs/Figure9_InstructorPanel.png" width="600" title="Instructor Panel">
@@ -154,7 +154,7 @@ Instructors can join the session via video conferencing to provide live supervis
 
 ## Funding & Acknowledgements
 
-[cite_start]This project was funded by the **National Oceanic and Atmospheric Administration (NOAA)** via a cooperative agreement with the University of Alabama (NA22NWS4320003) awarded to the Cooperative Institute for Research to Operations in Hydrology (CIROH)[cite: 1031].
+This project was funded by the **National Oceanic and Atmospheric Administration (NOAA)** via a cooperative agreement with the University of Alabama (NA22NWS4320003) awarded to the Cooperative Institute for Research to Operations in Hydrology (CIROH).
 
 ---
 
